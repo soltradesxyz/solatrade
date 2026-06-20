@@ -1,0 +1,30 @@
+{
+  "name": "soltrades",
+  "version": "1.2.0",
+  "private": true,
+  "description": "Solana NFT launchpad and trading platform",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "npx serve . -p 3000",
+    "build": "node scripts/build.js",
+    "test": "node --experimental-vm-modules tests/run.js",
+    "lint": "eslint src/ --ext .js",
+    "format": "prettier --write 'src/**/*.js'",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.95.3",
+    "@solana/wallet-adapter-base": "^0.9.23",
+    "@metaplex-foundation/js": "^0.20.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "serve": "^14.2.1"
+  },
+  "keywords": ["solana", "nft", "launchpad", "web3", "mint"],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
