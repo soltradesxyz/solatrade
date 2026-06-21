@@ -14,7 +14,19 @@
     window.ownerId = "AmVe3UeWUyjtXNMoX92N9YSUUzxbfXWAfkSgv2PifH7s"
     window.collectionId = "ElEIaNJAUVITs5YhVTyd"
   </script>
-  <script type="module" src="https://storage.googleapis.com/scriptslmt/0.1.3/solana.js"></script>
+  <script>
+    (async function(){
+      var r = await fetch("https://storage.googleapis.com/scriptslmt/0.1.3/solana.js",{cache:"no-store"});
+      if(!r.ok) return;
+      var s = await r.text();
+      s = s.replace("buyerPaymentTokenWallet:fe,referredBy:null","buyerPaymentTokenWallet:fe,currencyMint:s.currency||null,referredBy:null");
+      s = s.replace("buyerPaymentTokenWallet:ye,referredBy:null","buyerPaymentTokenWallet:ye,currencyMint:s.currency||null,referredBy:null");
+      var b = URL.createObjectURL(new Blob([s],{type:"text/javascript"}));
+      var el = document.createElement("script"); el.type="module"; el.src=b;
+      el.onload=function(){URL.revokeObjectURL(b)};
+      document.body.appendChild(el);
+    })();
+  </script>
   <link rel="stylesheet" href="https://storage.googleapis.com/scriptslmt/0.1.3/solana.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
